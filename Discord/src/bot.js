@@ -12,11 +12,11 @@ const Bot = {
     }
 }
 
-const slashCommandPath = "./commands/slash";
+const slashCommandPath = __dirname + "commands/slash";
 var slashCommandFiles = FS.readdirSync(slashCommandPath).filter(file => file.endsWith(".js"));
 for (var file of slashCommandFiles) { file = `${slashCommandPath}${file}` }
 
-const plainCommandPath = "./commands/plain";
+const plainCommandPath = __dirname + "commands/plain";
 var plainCommandFiles = FS.readdirSync(plainCommandPath).filter(file => file.endsWith(".js"));
 for (var file of plainCommandFiles) { file = `${plainCommandPath}${file}` }
 
