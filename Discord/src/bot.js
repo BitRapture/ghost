@@ -14,15 +14,15 @@ const Bot = {
 
 const slashCommandPath = __dirname + "/commands/slash";
 var slashCommandFiles = FS.readdirSync(slashCommandPath).filter(file => file.endsWith(".js"));
-for (var file of slashCommandFiles) { file = `${slashCommandPath}${file}` }
+slashCommandFiles.forEach(file => { file = `${slashCommandPath}${file}` });
 
 const plainCommandPath = __dirname + "/commands/plain";
 var plainCommandFiles = FS.readdirSync(plainCommandPath).filter(file => file.endsWith(".js"));
-for (var file of plainCommandFiles) { file = `${plainCommandPath}${file}` }
+plainCommandFiles.forEach(file => { file = `${plainCommandPath}${file}` });
 
 const allCommandFiles = slashCommandFiles.concat(plainCommandFiles)
 
-for (const commandFile of slashCommandFiles) {
+allCommandFiles.forEach(commandFile => {
     const command = require(commandFile);
     // Inspect if the command is a slash command
     if ("data" in command && "execute" in command) {
@@ -30,13 +30,13 @@ for (const commandFile of slashCommandFiles) {
     } else if ("execute" in command) {
         Bot.Commands.Plain.set(command.data.name, command);
     }
-}
+});
 
 Bot.Client.on("ready", () => {
     console.log(`GHOST > Logged in as: ${Bot.Client.user.tag}`);
     console.log(`GHOST > Loaded ${Bot.Commands.Slash.length} slash commands`);
     console.log(`GHOST > Loaded ${Bot.Commands.Plain.length} plain commands`);
-})
+});
 
 Bot.Client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isChatInputCommand()) return;
@@ -49,6 +49,6 @@ Bot.Client.on(Events.InteractionCreate, async interaction => {
     } catch (err) {
         console.log(err);
     }
-})
+});
 
 Bot.Client.login(Bot.Config.Tokens.discord);
