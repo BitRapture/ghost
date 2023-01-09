@@ -22,7 +22,7 @@ for (var file of plainCommandFiles) { file = `${plainCommandPath}${file}` }
 
 const allCommandFiles = slashCommandFiles.concat(plainCommandFiles)
 
-for (const commandFile of slashCOmmandFiles) {
+for (const commandFile of slashCommandFiles) {
     const command = require(commandFile);
     // Inspect if the command is a slash command
     if ("data" in command && "execute" in command) {
