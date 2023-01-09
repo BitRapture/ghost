@@ -14,11 +14,11 @@ const Bot = {
 
 const slashCommandPath = "./commands/slash";
 var slashCommandFiles = FS.readdirSync(slashCommandPath).filter(file => file.endsWith(".js"));
-for (const file of slashCommandFiles) { file = `${slashCommandPath}${file}` }
+for (var file of slashCommandFiles) { file = `${slashCommandPath}${file}` }
 
 const plainCommandPath = "./commands/plain";
 var plainCommandFiles = FS.readdirSync(plainCommandPath).filter(file => file.endsWith(".js"));
-for (const file of plainCommandFiles) { file = `${plainCommandPath}${file}` }
+for (var file of plainCommandFiles) { file = `${plainCommandPath}${file}` }
 
 const allCommandFiles = slashCommandFiles.concat(plainCommandFiles)
 
