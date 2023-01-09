@@ -1,5 +1,4 @@
 const FS = require("node:fs");
-const Path = require("node:path");
 const { Client, Events, GatewayIntentBits, REST, Routes } = require("discord.js");
 // Create structure
 const Bot = {
@@ -15,13 +14,13 @@ const Bot = {
 const Rest = new REST({ version: "10" }).setToken(Bot.Config.Tokens.discord);
 
 // Accumulate all the commands
-const slashCommandPath = Path.join(__dirname, "commands/slash");
+const slashCommandPath = "./commands/slash";
 var slashCommandFiles = FS.readdirSync(slashCommandPath).filter(file => file.endsWith(".js"));
-slashCommandFiles.forEach(file => { file = Path.join(slashCommandPath, file); });
+slashCommandFiles.forEach(file => { file = `${slashCommandPath}${file}`; });
 
-const plainCommandPath = Path.join(__dirname, "/commands/plain");
+const plainCommandPath = "./commands/plain";
 var plainCommandFiles = FS.readdirSync(plainCommandPath).filter(file => file.endsWith(".js"));
-plainCommandFiles.forEach(file => { file = Path.join(plainCommandPath, file); });
+plainCommandFiles.forEach(file => { file = `${slashCommandPath}${plain}`; });
 
 const allCommandFiles = slashCommandFiles.concat(plainCommandFiles);
 
