@@ -15,11 +15,11 @@ const Bot = {
 const Rest = new REST({ version: "10" }).setToken(Bot.Config.Tokens.discord);
 
 // Accumulate all the commands
-const slashCommandPath = path.join(__dirname, "commands/slash");
+const slashCommandPath = Path.join(__dirname, "commands/slash");
 var slashCommandFiles = FS.readdirSync(slashCommandPath).filter(file => file.endsWith(".js"));
 slashCommandFiles.forEach(file => { file = `${slashCommandPath}${file}` });
 
-const plainCommandPath = path.join(__dirname, "/commands/plain");
+const plainCommandPath = Path.join(__dirname, "/commands/plain");
 var plainCommandFiles = FS.readdirSync(plainCommandPath).filter(file => file.endsWith(".js"));
 plainCommandFiles.forEach(file => { file = `${plainCommandPath}${file}` });
 
