@@ -23,7 +23,6 @@ var plainCommandFiles = FS.readdirSync(plainCommandPath).filter(file => file.end
 const plainCMDPaths = plainCommandFiles.map(file => file = `${slashCommandPath}/${plain}`);
 
 const allCommandFiles = slashCMDPaths.concat(plainCMDPaths);
-console.log(allCommandFiles);
 
 // Save to bot struct
 allCommandFiles.forEach(commandFile => {
@@ -60,8 +59,8 @@ Bot.Commands.Slash.forEach(command => {
 // Discord bot online
 Bot.Client.on("ready", () => {
     console.log(`GHOST > Logged in as: ${Bot.Client.user.tag}`);
-    console.log(`GHOST > Loaded ${Bot.Commands.Slash.length} slash commands`);
-    console.log(`GHOST > Loaded ${Bot.Commands.Plain.length} plain commands`);
+    console.log(`GHOST > Loaded ${Bot.Commands.Slash.size} slash commands`);
+    console.log(`GHOST > Loaded ${Bot.Commands.Plain.size} plain commands`);
 });
 
 // Slash command interaction handler
