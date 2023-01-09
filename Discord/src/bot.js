@@ -23,6 +23,7 @@ var plainCommandFiles = FS.readdirSync(plainCommandPath).filter(file => file.end
 plainCommandFiles.forEach(file => { file = `${slashCommandPath}/${plain}`; }, plainCommandFiles);
 
 const allCommandFiles = slashCommandFiles.concat(plainCommandFiles);
+console.log(allCommandFiles);
 
 // Save to bot struct
 allCommandFiles.forEach(commandFile => {
