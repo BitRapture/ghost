@@ -71,7 +71,7 @@ Bot.Client.on(Events.InteractionCreate, async interaction => {
     if (!command) return;
 
     try {
-        await command.execute(interaction);
+        await command.execute(Bot, interaction);
     } catch (err) {
         console.log(err);
     }

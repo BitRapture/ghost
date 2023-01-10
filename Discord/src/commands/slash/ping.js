@@ -4,7 +4,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("ping")
         .setDescription("The hello-world of server applications"),
-    async execute(interaction) {
-        await interaction.reply("Pong :)");
+    async execute(Bot, interaction) {
+        await interaction.reply(`Latency from Server: \`${(Date.now() - interaction.createdAt).toString()}\`ms\nLatency from Discord API: \`${Bot.Client.ws.ping}\``);
     }
 }
