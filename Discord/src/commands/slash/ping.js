@@ -5,6 +5,6 @@ module.exports = {
         .setName("ping")
         .setDescription("The hello-world of server applications"),
     async execute(Bot, interaction) {
-        await interaction.reply(`Latency from Server: \`${(Date.now() - interaction.createdAt).toString()}\`ms\nLatency from Discord API: \`${Bot.Client.ws.ping}\``);
+        await interaction.reply(`Latency from Server: \`${(Date.now() - interaction.createdAt).toString()}\`ms\nLatency from Discord API: \`${Bot.Client.ws.ping}\`ms`);
     }
 }
